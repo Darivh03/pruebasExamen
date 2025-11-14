@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Operación Pollito | Inicio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/pollitos.css">
+  <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body data-page="index">
+  <!-- Barra de Navegación Unificada -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0D47A1;">
+    <div class="container">
+
+      <a class="navbar-brand fw-bold brand-highlight" href="index.html">Operación Pollito</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <div class="navbar-nav me-auto">
+          <!-- Enlaces directos a las vistas -->
+          <a class="nav-link" href="view/VistaBeneficiarios.html">Beneficiarios</a>
+          <a class="nav-link" href="view/VistaEncargado.html">Encargados</a>
+          <a class="nav-link" href="view/VistaDonaciones.html">Ingreso de Donaciones</a>
+          <a class="nav-link" href="view/compras.html">Compras de Pollitos</a>
+          <a class="nav-link" href="view/usuarios.html">Crear Usuarios</a>
+          <a class="nav-link" href="view/VistaCaja.html">Caja</a>
+          <a class="nav-link" href="view/VistaDonantes.html">Donantes</a>
+          <a class="nav-link" href="view/VistaVentas.html">Ventas</a>
+        </div>
+        <!-- El widget de autenticación se inyectará aquí por JS -->
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Contenido Principal -->
+  <main class="container my-5">
+    <div class="text-center py-5">
+      <h1 class="display-4 mb-3">Bienvenido al Sistema</h1>
+      <p class="lead">Selecciona una vista en la barra de navegación para comenzar.</p>
+    </div>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="text-center text-muted py-4 mt-auto">
+    <small>&copy; 2024 Operación Pollito. Todos los derechos reservados.</small>
+  </footer>
+
+  <!-- Scripts de Bootstrap y la aplicación -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Inicializa los componentes de UI relacionados con la autenticación
+    document.addEventListener('DOMContentLoaded', () => {
+      window.PollitoAuth.bindUI({ injectIfMissing: true });
+    });
+  </script>
+</body>
+</html>

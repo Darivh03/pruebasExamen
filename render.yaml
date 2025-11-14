@@ -1,0 +1,47 @@
+# render.yaml
+# Blueprint para desplegar el proyecto en Render
+
+services:
+  # Servicio de Base de Datos MySQL
+  - type: mysql
+    name: mysql-db-proyectoweb
+    plan: free # Plan gratuito de Render
+    mysqlVersion: '8' # Versión de MySQL
+
+  # Servicio Web para el Backend de Node.js
+  - type: web
+    name: proyecto-web-backend
+    env: node
+    plan: free # Plan gratuito de Render
+    rootDir: ./backend # Le indica a Render que el código está en la carpeta 'backend'
+    buildCommand: "npm install" # Comando para instalar dependencias
+    startCommand: "npm start" # Comando para iniciar el servidor
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Las siguientes variables se conectan automáticamente a la base de datos creada arriba
+      - key: DB_HOST
+        fromService:
+          type: mysql
+          name: mysql-db-proyectoweb
+          property: host
+      - key: DB_USER
+        fromService:
+          type: mysql
+          name: mysql-db-proyectoweb
+          property: user
+      - key: DB_PASS
+        fromService:
+          type: mysql
+          name: mysql-db-proyectoweb
+          property: password
+      - key: DB_DATABASE
+        fromService:
+          type: mysql
+          name: mysql-db-proyectoweb
+          property: database
+      - key: DB_PORT
+        fromService:
+          type: mysql
+          name: mysql-db-proyectoweb
+          property: port
